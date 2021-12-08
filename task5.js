@@ -2,9 +2,9 @@
 'use strict';
 const values = [null, true, {}, { name: 'Elon' }, '', NaN, 0];
 
-function filterFalsyValues() {
+function filterFalsyValues(value) {
   function falsey() {
-    const falseyValues = values.filter((e) => {
+    const falseyValues = value.filter((e) => {
       if (!e) {
         e;
       }
@@ -12,5 +12,34 @@ function filterFalsyValues() {
   }
   return falsey;
 }
-let falseyVal = filterFalsyValues(values);
-console.log(falseyVal());
+let falseyVal = filterFalsyValues([
+  null,
+  true,
+  {},
+  { name: 'Elon' },
+  '',
+  NaN,
+  0,
+]);
+falseyVal();
+
+function filterTruthyValues(value) {
+  function truthy() {
+    const truthyValues = value.filter((e) => {
+      if (e) {
+        e;
+      }
+    });
+  }
+  return truthy;
+}
+let truthyVal = filterTruthyValues([
+  null,
+  true,
+  {},
+  { name: 'Elon' },
+  '',
+  NaN,
+  0,
+]);
+truthyVal();
