@@ -1,11 +1,17 @@
 // Write a function redundant that takes in a string str and returns a function that returns str.
 'use strict';
 
-const lovedFruit = function (fruit) {
+function redundant(fruit) {
   return function () {
-    return console.log(`${fruit}`);
+    return fruit;
   };
-};
+}
 
-let knowFruit = lovedFruit('Pearl');
-knowFruit();
+const f1 = redundant('Apple');
+console.log(f1());
+
+const f2 = redundant('Pearl');
+console.log(f2());
+
+const f3 = redundant('');
+console.log(f3());
